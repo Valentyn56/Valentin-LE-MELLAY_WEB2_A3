@@ -92,7 +92,7 @@ class IntegerValidatorTest extends \PHPUnit_Framework_TestCase
     public function testGenerateLengthIsBetween()
     {
         $int = mt_rand(10, 20);
-        $bool = IntegerValidator::between($int, 1, 30);
+        $bool = IntegerValidator::between(1, 30,$int);
         $this->assertTrue($bool);
     }
     /**
@@ -124,9 +124,9 @@ class IntegerValidatorTest extends \PHPUnit_Framework_TestCase
      */
     public function testGenerateLengthIsNotNegative()
     {
-        $int = mt_rand(20, 30);
+        $int = mt_rand(-20, -30);
         $bool = IntegerValidator::is_negative($int);
-        $this->assertFalse($bool);
+        $this->assertTrue($bool);
     }
     /**
      * Test if the generated integer is positive
@@ -135,9 +135,9 @@ class IntegerValidatorTest extends \PHPUnit_Framework_TestCase
      */
     public function testGenerateLengthIsPositive()
     {
-        $int = mt_rand(10, 20);
+        $int = mt_rand(-10, -20);
         $bool = IntegerValidator::is_positive($int);
-        $this->assertEquals($bool, true);
+        $this->assertFalse($bool,true);
     }
     /**
      * Test if the generated integer is positive

@@ -146,7 +146,7 @@ class StringValidatorTest extends \PHPUnit_Framework_TestCase
      */
     public function testStringHasNoWhiteSpace()
     {
-        $string = "4azdaazdqsdqéqsd78cdfpiok";
+        $string = "4azdaazdqsdqéqsd 78cdfpiok";
         $bool = StringValidator::noWhiteSpace($string);
         $this->assertFalse($bool);
     }

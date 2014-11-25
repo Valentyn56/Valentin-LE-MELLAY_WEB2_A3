@@ -118,7 +118,7 @@ class ArrayValidatorTest extends \PHPUnit_Framework_TestCase
     public function testIsBetween()
     {
         $array = array('Dogs' => 3, 'Cats' => 10);
-        $bool = ArrayValidator::numberElementsBetween($array, 1, 2);
+        $bool = ArrayValidator::elementsBetween($array, 1, 2);
         $this->assertTrue($bool);
     }
     /**
@@ -129,7 +129,7 @@ class ArrayValidatorTest extends \PHPUnit_Framework_TestCase
     public function testIsNotBetween()
     {
         $array = array('Dogs' => 3, 'Cats' => 10);
-        $bool = ArrayValidator::numberElementsBetween($array, 3, 5);
+        $bool = ArrayValidator::elementsBetween($array, 3, 5);
         $this->assertFalse($bool);
     }
     /**
