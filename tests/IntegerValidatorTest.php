@@ -124,7 +124,7 @@ class IntegerValidatorTest extends \PHPUnit_Framework_TestCase
      */
     public function testGenerateLengthIsNotNegative()
     {
-        $int = mt_rand(-20, -30);
+        $int = mt_rand(-30, -20);
         $bool = IntegerValidator::is_negative($int);
         $this->assertTrue($bool);
     }
@@ -135,7 +135,7 @@ class IntegerValidatorTest extends \PHPUnit_Framework_TestCase
      */
     public function testGenerateLengthIsPositive()
     {
-        $int = mt_rand(-10, -20);
+        $int = mt_rand(-20, -10);
         $bool = IntegerValidator::is_positive($int);
         $this->assertFalse($bool,true);
     }

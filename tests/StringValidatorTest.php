@@ -21,7 +21,7 @@ class StringValidatorTest extends \PHPUnit_Framework_TestCase
     {
         $string = str_shuffle("98haabfvapobcçh3");
         $length = mb_strlen($string);
-        $bool = StringValidator::equal($string, $length);
+        $bool = StringValidator::equal($length,$string);
         $this->assertTrue($bool);
     }
     /**
@@ -33,7 +33,7 @@ class StringValidatorTest extends \PHPUnit_Framework_TestCase
     {
         $string = str_shuffle("98haaospsjbafoihj9ç");
         $length = mb_strlen($string);
-        $bool = StringValidator::equal($string, $length - 10);
+        $bool = StringValidator::equal($length - 10,$string);
         $this->assertFalse($bool);
     }
     /**
@@ -44,7 +44,7 @@ class StringValidatorTest extends \PHPUnit_Framework_TestCase
     public function testStringIsSuperior()
     {
         $string = str_shuffle("98haaospsjbafoihj9ç");
-        $bool = StringValidator::superior($string , 1);
+        $bool = StringValidator::superior(1,$string);
         $this->assertTrue($bool);
     }
     /**
@@ -55,7 +55,7 @@ class StringValidatorTest extends \PHPUnit_Framework_TestCase
     public function testStringIsNotSuperior()
     {
         $string = str_shuffle("98haaospsjbafoihj9ç");
-        $bool = StringValidator::superior($string , 9999);
+        $bool = StringValidator::superior(9999,$string);
         $this->assertFalse($bool);
     }
     /**
@@ -67,7 +67,7 @@ class StringValidatorTest extends \PHPUnit_Framework_TestCase
     {
         $string = str_shuffle("98haaospsjbafoihj9ç");
         $length = mb_strlen($string) + 10;
-        $bool = StringValidator::inferior($string , $length);
+        $bool = StringValidator::inferior($length,$string);
         $this->assertEquals($bool, true);
     }
     /**
@@ -79,7 +79,7 @@ class StringValidatorTest extends \PHPUnit_Framework_TestCase
     {
         $string = str_shuffle("98haaospsjbafoihj9ç");
         $length = mb_strlen($string);
-        $bool = StringValidator::inferior($string , $length - 10);
+        $bool = StringValidator::inferior($length - 10,$string);
         $this->assertFalse($bool);
     }
     /**
@@ -91,7 +91,7 @@ class StringValidatorTest extends \PHPUnit_Framework_TestCase
     {
         $string = str_shuffle("98haaospsjbafoihj9ç");
         $length = mb_strlen($string);
-        $bool = StringValidator::lengthBetween($string , $length - 10, $length + 10);
+        $bool = StringValidator::lengthBetween($length - 10, $length + 10,$string);
         $this->assertTrue($bool);
     }
     /**
@@ -103,7 +103,7 @@ class StringValidatorTest extends \PHPUnit_Framework_TestCase
     {
         $string = str_shuffle("98haaospsjbafoihj9ç");
         $length = mb_strlen($string);
-        $bool = StringValidator::lengthBetween($string , $length + 10, $length - 10);
+        $bool = StringValidator::lengthBetween($length + 10, $length - 10,$string);
         $this->assertFalse($bool);
     }
     /**
@@ -135,7 +135,7 @@ class StringValidatorTest extends \PHPUnit_Framework_TestCase
      */
     public function testStringHasWhiteSpace()
     {
-        $string = "4azdaazdq sdqé qsd78cdfp liok";
+        $string = "4azdaazdqsdqéqsd78cdfpliok";
         $bool = StringValidator::noWhiteSpace($string);
         $this->assertTrue($bool);
     }
